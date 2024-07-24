@@ -93,41 +93,76 @@
 
 // console.log('clockTwo', clockTwo);
 
-let clock = null;
+// let clock = null;
 
-const startBtn = document.getElementById('start-btn');
-startBtn.addEventListener('click', function () {
-    if (clock == null) {
-        clock = setInterval(function () {
-            const currentMinutes = parseInt(document.getElementById('minutes').innerText);
-            const currentSeconds = parseInt(document.getElementById('seconds').innerText);
-            let totalSeconds = (currentMinutes * 60) + currentSeconds;
-            totalSeconds++;
+// const startBtn = document.getElementById('start-btn');
+// startBtn.addEventListener('click', function () {
+//     if (clock == null) {
+//         clock = setInterval(function () {
+//             const currentMinutes = parseInt(document.getElementById('minutes').innerText);
+//             const currentSeconds = parseInt(document.getElementById('seconds').innerText);
+//             let totalSeconds = (currentMinutes * 60) + currentSeconds;
+//             totalSeconds++;
     
-            const newCurrentMinutes = Math.floor(totalSeconds / 60);
-            const newCurrentSeconds = totalSeconds - (newCurrentMinutes * 60);
-            document.getElementById('minutes').innerHTML = newCurrentMinutes;
-            document.getElementById('seconds').innerHTML = newCurrentSeconds;
-            // let currentTime = parseInt(document.getElementById('time').innerText);
-            // currentTime++;
-            // console.log(currentTime);
+//             const newCurrentMinutes = Math.floor(totalSeconds / 60);
+//             const newCurrentSeconds = totalSeconds - (newCurrentMinutes * 60);
+//             document.getElementById('minutes').innerHTML = newCurrentMinutes;
+//             document.getElementById('seconds').innerHTML = newCurrentSeconds;
+//             // let currentTime = parseInt(document.getElementById('time').innerText);
+//             // currentTime++;
+//             // console.log(currentTime);
     
-            // document.getElementById('time').innerHTML = currentTime;
-        }, 1000);
+//             // document.getElementById('time').innerHTML = currentTime;
+//         }, 1000);
     
-        console.log('New clock:', clock);
+//         console.log('New clock:', clock);
+//     }
+// });
+
+// const stopBtn = document.getElementById('stop-btn');
+// stopBtn.addEventListener('click', function () {
+//     clearInterval(clock);
+
+//     clock = null;
+// });
+
+// const resetBtn = document.getElementById('reset-btn');
+// resetBtn.addEventListener('click', function () {
+//     document.getElementById('minutes').innerHTML = 0;
+//     document.getElementById('seconds').innerHTML = 0;
+// });
+
+/* 
+    ----------------------------------------------------------------
+    ARROW FUNCTION
+    ----------------------------------------------------------------
+*/
+
+console.log('THIS GLOBALE', this);
+
+document.getElementById('start-btn').addEventListener('click', function () {
+    console.log('CLICCATO SU START', this);
+});
+
+document.getElementById('stop-btn').addEventListener('click', () => {
+    console.log('CLICCATO SU STOP', this);
+
+    let ciccio = 3;
+
+    if (true) {
+        console.log(ciccio);
     }
 });
 
-const stopBtn = document.getElementById('stop-btn');
-stopBtn.addEventListener('click', function () {
-    clearInterval(clock);
+// const sum = (a, b) => {
+//     return a + b;
+// };
 
-    clock = null;
-});
+const sum = (a, b) => a + b;
 
-const resetBtn = document.getElementById('reset-btn');
-resetBtn.addEventListener('click', function () {
-    document.getElementById('minutes').innerHTML = 0;
-    document.getElementById('seconds').innerHTML = 0;
-});
+const sumOne = sum(3, 4);
+console.log('sumOne', sumOne, typeof sumOne);
+
+// function sum(a, b) {
+//     return a + b;
+// }
