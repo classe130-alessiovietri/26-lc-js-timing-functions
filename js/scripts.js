@@ -97,15 +97,26 @@ let clock = null;
 
 const startBtn = document.getElementById('start-btn');
 startBtn.addEventListener('click', function () {
-    clock = setInterval(function () {
-        let currentTime = parseInt(document.getElementById('time').innerText);
-        currentTime++;
-        console.log(currentTime);
-
-        document.getElementById('time').innerHTML = currentTime;
-    }, 1000);
-
-    console.log('New clock:', clock);
+    if (clock == null) {
+        clock = setInterval(function () {
+            const currentMinutes = parseInt(document.getElementById('minutes').innerText);
+            const currentSeconds = parseInt(document.getElementById('seconds').innerText);
+            let totalSeconds = (currentMinutes * 60) + currentSeconds;
+            totalSeconds++;
+    
+            const newCurrentMinutes = Math.floor(totalSeconds / 60);
+            const newCurrentSeconds = totalSeconds - (newCurrentMinutes * 60);
+            document.getElementById('minutes').innerHTML = newCurrentMinutes;
+            document.getElementById('seconds').innerHTML = newCurrentSeconds;
+            // let currentTime = parseInt(document.getElementById('time').innerText);
+            // currentTime++;
+            // console.log(currentTime);
+    
+            // document.getElementById('time').innerHTML = currentTime;
+        }, 1000);
+    
+        console.log('New clock:', clock);
+    }
 });
 
 const stopBtn = document.getElementById('stop-btn');
@@ -117,5 +128,6 @@ stopBtn.addEventListener('click', function () {
 
 const resetBtn = document.getElementById('reset-btn');
 resetBtn.addEventListener('click', function () {
-    document.getElementById('time').innerHTML = 0;
+    document.getElementById('minutes').innerHTML = 0;
+    document.getElementById('seconds').innerHTML = 0;
 });
