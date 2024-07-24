@@ -18,3 +18,22 @@ html {
     max-width: 1000px;
     margin: 0 auto;
 }
+
+#timer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 0;
+}
+
+#timer > #time {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#timer > :last-child {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
